@@ -1,1 +1,0 @@
-LearningRate = 1

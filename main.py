@@ -1,7 +1,6 @@
-from load import load_csv
 from make_scatter import make_scatter, make_precision
 from learning import new_thepa
-import numpy as np
+import pandas as pd
 
 def estimatePrice(km, theta0, theta1):
     return theta0 + (theta1 * km)
@@ -16,6 +15,11 @@ def normalize(df):
 
     return df
 
+
+def load_csv(path: str):
+    df = pd.read_csv(path)
+    # print(df)
+    return df
 
 def main():
     try:
@@ -34,8 +38,6 @@ def main():
         # print(theta0, theta1)
         if new_theta0 == theta0 and new_theta1 == theta1:
             break
-        # if new_theta0 >= 0.9999999 *theta1 and 1.0000001 * theta0 >= new_theta0:
-        #     break
         theta0 = new_theta0
         theta1 = new_theta1
     
@@ -46,8 +48,10 @@ def main():
 
     theta1_scale = theta1 * (max_price - min_price) / (max_km - min_km)
     theta0_scale = theta0 * (max_price - min_price) + min_price - (theta1_scale * min_km) 
-    print(theta0, theta1)
-    print(theta0_scale, theta1_scale)
+    # print(theta0, theta1)
+    print("theta0=",theta0_scale)
+    print("theta1=", theta1_scale)
+    # print(theta0_scale, theta1_scale)
 
     theta_list["theta0"] = theta0_scale
     theta_list["theta1"] = theta1_scale
@@ -55,13 +59,9 @@ def main():
     theta_list["theta1_normalized"] = theta1
 
     make_scatter(df, theta_list)
-    print(len(precision))
+    # print(len(precision))
     make_precision(precision)
-
-
 
 if __name__ == "__main__":
     main()
 
-# 0.9393189294497382 -1.0035757423969949
-# 8499.599649933165 -0.021448963591701817

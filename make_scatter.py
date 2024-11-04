@@ -2,17 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def make_scatter(df, theta_list):
-    # plt.scatter(df["km"], df["price"])
-    # plt.title('Km vs Price')
-    # plt.xlabel('Km')
-    # plt.ylabel('Price')
-    # plt.savefig("pricedata1.png")
-
-    # plt.scatter(df["km_normalized"], df["price_normalized"])
-    # plt.title('Km vs Price')
-    # plt.xlabel('Km')
-    # plt.ylabel('Price')
-    # plt.savefig("pricedata2.png")
     
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
 
@@ -34,7 +23,7 @@ def make_scatter(df, theta_list):
     ax2.plot(x2, y)
 
     plt.tight_layout()
-    plt.savefig("combined_price_data.png")
+    plt.savefig("picture/combined_price_data.png")
     plt.close()
 
 def make_precision(precision_list):
@@ -44,4 +33,4 @@ def make_precision(precision_list):
     plt.xlabel('The number of times')
     plt.ylabel('MSE')
     # plt.xscale('log')
-    plt.savefig("precision.png")
+    plt.savefig("picture/precision.png")
