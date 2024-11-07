@@ -62,6 +62,9 @@ def main():
     # print(len(precision))
     make_precision(precision)
 
+    theta = pd.DataFrame([theta0_scale, theta1_scale], index=["theta0", "theta1"], columns=["value"])
+    theta.to_csv("train_data.csv")
+
 if __name__ == "__main__":
     main()
 

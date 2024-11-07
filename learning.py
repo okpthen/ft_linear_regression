@@ -1,4 +1,4 @@
-LearningRate = 1
+LearningRate = 0.1
 
 def estimatePrice(km, theta0, theta1):
     return theta0 + (theta1 * km)
